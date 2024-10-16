@@ -30,12 +30,14 @@ Our choice was informed by literature suggesting Gradient Boosting’s effective
 Imperials Ltd's journey towards harnessing data for strategic marketing begins with careful data pre-processing. Our first step was to determine the completeness of the data. We identified missing values across key categorical features: education, marriage, and house ownership, with the counts of missing values standing at 741, 14,027, and 3,377 respectively. We addressed these by designating an 'Unknown' category, thereby retaining these records for analysis without imputing potentially misleading values.
 
 ![image](https://github.com/user-attachments/assets/ee45de55-9cd3-4d20-90ed-402de9a7f61d)
+
 Figure 1: Count of zero values
 
 Next, we focused on uniqueness, where 305 duplicate records were removed to ensure the integrity of our dataset. With the validity of our data confirmed, we turned our attention to the 'child' column. To maintain consistency, we translated '0' values to 'N' for 'no children', streamlining our categorical data into a logical format.
 After these foundational steps, we transformed our data to better suit the predictive models we planned to employ. Notably, we engineered a new binary variable, 'house_val_nonzero', distinguishing between customers with and without house value data.
 
 ![image](https://github.com/user-attachments/assets/65f05cb1-9690-434d-9447-591fd821d136)
+
 Figure 2: Distribution of house_val_nonzero
 
 Our exploratory data analysis (EDA) started with a visualization of house values, revealing a skewed distribution where most customers fall within the lower range of property valuation, crucial information for understanding economic demographics.
@@ -47,41 +49,51 @@ The pre-processing phase also includes robust encoding strategies. We transforme
 Through statistical summaries, we differentiated the central tendencies and distributions of key variables. For instance, the analysis of the 'house_val' variable reveals a distribution with a substantial peak in the lower value range, indicating a high frequency of customers with relatively modest house valuations. This insight prompts targeted strategies for customers within this economic bracket.
 
 ![image](https://github.com/user-attachments/assets/3d1c44b9-db7c-443f-a81c-b83e95a1ef5d)
+
 Figure 3: Distribution of House Value
 
 Visual explorations provide further clarity. The frequency plot for education levels represents a balanced representation across different educational qualifications, yet it is the customers with a Bachelor's degree who show a higher propensity for purchasing life insurance, as illustrated in the 'Purchased Life Insurance by Education Level' histogram. Such findings hint at a correlation between education and investment in life insurance, potentially guiding the marketing focus.
 
 ![image](https://github.com/user-attachments/assets/a0c6329b-5d5b-426a-8323-5d5520069b0c)
+
 Figure 4: Distribution of Purchase count over education level
 
 Marital status, as seen in the 'Purchased Life Insurance by Marriage Status' chart, surfaces another layer of understanding, with married customers exhibiting higher insurance uptake. This aligns with life-stage financial planning that often accompanies marital commitments.
 
 ![image](https://github.com/user-attachments/assets/da4b8271-3555-479c-a023-86cb3b4341ec)
+
 Figure 5: Distribution of Purchase count over marriage status
 
 Age distribution and its relationship with life insurance purchases come to life in our visualizations, where middle-aged customer segments are spotlighted as significant contributors to policy acquisitions.
 
 ![image](https://github.com/user-attachments/assets/b2a2ac5d-5cb9-44c8-96aa-b64230c654ed)
+
 Figure 6: Distribution of Purchase count over Age group
 
 Family income and the presence of children are not left behind, with medium income brackets and households with children identified as segments with a greater inclination towards life insurance—a reflection of the protective instinct and financial foresight within family settings.
 
 ![image](https://github.com/user-attachments/assets/679f07e2-cdda-41f7-8a15-07b739bedda6)
+
 Figure 7: Distribution of Purchase count over family income
 
 ![image](https://github.com/user-attachments/assets/937ac5f0-f095-4d39-9eca-e47a469f2fdf)
+
 Figure 8: Distribution of Purchase count over having child
 
 Mortgage status, home ownership, and regional segmentation are also visually dissected, showcasing variances in purchasing behaviour that could be pivotal in regional market segmentation and tailored marketing campaigns.
 
 ![image](https://github.com/user-attachments/assets/33d7a079-0e25-4717-9b8c-e77840ef464b)
+
 Figure 9: Distribution of Purchase count over mortgage status
 
 ![image](https://github.com/user-attachments/assets/5510f6cf-8e91-43af-ac31-22dc1cbe9aaf)
+
 Figure 10: Distribution of Purchase count over region
 
 ![image](https://github.com/user-attachments/assets/dec488a7-3626-4640-a177-ae9ed83c9c57)
+
 Figure 11: Distribution of Purchase count over house ownership
+
 Each plot and statistical measure is not just a mere representation of data; they are narratives about potential customers, guiding lights towards understanding the connection between demographics and purchasing patterns. This comprehension is essential, as it informs the predictive modelling that follows, ensuring that the foundation upon which we build our predictive analytics is powerful and insightful.
 
 ### Supervised Machine Learning
@@ -99,9 +111,11 @@ Comparing our two chosen models, we aim to use the strengths of ensemble methods
 The results from the Gradient Boosting and Generalized Additive Models (GAM) demonstrated parallel performance with equivalent accuracy metrics as demonstrated in the plots and summarized in the table below:
 
 ![image](https://github.com/user-attachments/assets/48a98312-2b50-4087-a52a-78a37a7030d3)
+
 Figure 12: Performance measures of gradient boosting classifier
 
 ![image](https://github.com/user-attachments/assets/af96a0ac-aefc-42d0-9a21-b08c3af33c47)
+
 Figure 13: Performance measures of GAM model
 
 ![image](https://github.com/user-attachments/assets/655b3c6c-8ad0-470f-9f72-609fee346ad3)
@@ -111,11 +125,13 @@ Based on the comparison of the performance metrics and plots, the Gradient Boost
 ### Insights and Challenges:
 
 ![image](https://github.com/user-attachments/assets/5276b79d-991a-4845-98ae-3723200aed5e)
+
 Figure 14: Feature importance plot
 
 The feature importance plots indicated that 'house_val', 'Gender_M', 'occupation_professional', 'mortgage_1low', ‘online_Y’, ‘education_HS’, and age groups 7 and 5 are the top predictors influencing the purchase of insurance, implying that customers' socio-economic status and gender type are significant predictors of insurance purchasing behaviour.
 
 ![image](https://github.com/user-attachments/assets/794b642b-2900-48e1-9571-cff5c10e47a7)
+
 Figure 14: Partial dependent plots
 
 Partial Dependence Plots (PDPs) offered deeper insights into the relationship between these features and the target variable (Apley and Zhu, 2020). The top predictors, based on the noticeable changes and variations in the partial dependence plots, appear to be almost same which were highlighted from feature importance plot of our gradient boosting method.
